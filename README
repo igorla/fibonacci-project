@@ -1,5 +1,5 @@
 1. Checkout from this repository
-2. Build (and deploy in local repo): using gradle or maven. For example, run 
+2. Build, tests (and deploy in local repo): using gradle or maven. For example, run 
 	'mvn clean install'
 3. Start service:
     'java -jar target\Fibonacci-service-1.0.jar'
