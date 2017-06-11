@@ -3,6 +3,8 @@
  */
 package com.fibonacci.service.storage;
 
+import java.math.BigInteger;
+
 /**
  * Storage for calculated results. Implmentation may inMemory, distributed cache, some fast-access database, like s3/MongoDB/Cassandra, etc 
  * @author igorl
@@ -15,13 +17,13 @@ public interface ResultsStorage {
 	 * @param number
 	 * @return
 	 */
-	public long get(int number);
+	public BigInteger get(int number);
 	
 	/**
 	 * Places result to next available slot
 	 * @param result
 	 */
-	public void add(long result);
+	public void add(BigInteger result);
 	
 	/**
 	 * 

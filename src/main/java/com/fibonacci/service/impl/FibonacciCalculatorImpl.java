@@ -3,6 +3,8 @@
  */
 package com.fibonacci.service.impl;
 
+import java.math.BigInteger;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +37,7 @@ public class FibonacciCalculatorImpl implements FibonacciCalculator{
 	 * @throws InvalidFibonacciParameterException is thrown when an input is negative
 	 */
 	@Override
-	public  synchronized long get(int n) throws InvalidFibonacciParameterException {
+	public  synchronized BigInteger get(int n) throws InvalidFibonacciParameterException {
 
 		if (n < 0) {
 			throw new InvalidFibonacciParameterException(
@@ -47,10 +49,10 @@ public class FibonacciCalculatorImpl implements FibonacciCalculator{
 
 			for (int i = currentSize; i <= n; i++) {
 				// calculate new values and store it
-				resultsStorage.add(resultsStorage.get(i - 1) + resultsStorage.get(i - 2));
+				resultsStorage.add(resultsStorage.get(i - 1).add(resultsStorage.get(i - 2)));
 			}
 		}
-		long result = resultsStorage.get(n);
+		BigInteger result = resultsStorage.get(n);
 		if (logger.isDebugEnabled()) {
 			logger.debug("Calculated fibonacci value " + result + " for parameter " + n);
 		}

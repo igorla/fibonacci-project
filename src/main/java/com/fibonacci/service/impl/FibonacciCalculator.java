@@ -3,6 +3,8 @@
  */
 package com.fibonacci.service.impl;
 
+import java.math.BigInteger;
+
 /**
  * Calculates Fibonacci sequence
  * 
@@ -17,5 +19,5 @@ public interface FibonacciCalculator {
 	 * @return
 	 * @throws InvalidFibonacciParameterException
 	 */
-	public   long get(int number) throws InvalidFibonacciParameterException;
+	public   BigInteger get(int number) throws InvalidFibonacciParameterException;
 }

@@ -3,6 +3,7 @@
  */
 package com.fibonacci.service.storage;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,20 +16,21 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class ResultsStorageMemoryImpl implements ResultsStorage{
-	// Accumulator for already calculated numbers. Thread-safe is implemented by synchronized on add operation, which will lock whole instance
-	private  List<Long> fibValues = new ArrayList<>();
+	// Accumulator for already calculated numbers. BigInteger is used to support results that quick become bigger than Long.MAX_VALUE.
+	//Thread-safe is implemented by synchronized on add operation, which will lock whole instance	
+	private  List<BigInteger> fibValues = new ArrayList<>();
 	
 	
 	public ResultsStorageMemoryImpl(){
-		fibValues.add(0L);
-		fibValues.add(1L);
+		fibValues.add(BigInteger.valueOf(0));
+		fibValues.add(BigInteger.valueOf(1));
 	}
 	@Override
-	public long get(int number) {
+	public BigInteger get(int number) {
 		return fibValues.get(number);
 	}
 	@Override
-	public synchronized void add(long result) {
+	public synchronized void add(BigInteger result) {
 		fibValues.add(result);
 	}
 	@Override
