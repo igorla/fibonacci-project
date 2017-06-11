@@ -1,4 +1,4 @@
-1. Checkout from:
+1. Checkout from this repository
 2. Build (and deploy in local repo): using gradle or maven. For example, run 
 	'mvn clean install'
 3. Start service:
