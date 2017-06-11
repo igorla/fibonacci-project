@@ -1,0 +1,11 @@
+1. Checkout from:
+2. Build (and deploy in local repo): using gradle or maven. For example, run 
+	'mvn clean install'
+3. Start service:
+    'java -jar target\Fibonacci-service-1.0.jar'
+4. Access service:    	
+	http://localhost:8080/fibonacci/{input_number}
+	For example, http://localhost:8080/fibonacci/2
+5. The service is using FibonacciCalculator that was implemented using dynamic programming approach with in memory storage for calculated values. In the future it is possible replace storage with more scalable solutions (like described in comments)
+
+ 	
